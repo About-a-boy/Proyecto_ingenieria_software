@@ -1,2 +1,4 @@
 Archivo de prueba
 Con estste archivo en sus computadoras, estarán seguros de que ya se conectaron al repositorio :D
+Por favor, escriban sus nombres completos en este documento:
+Galván Rodríguez Esteban
