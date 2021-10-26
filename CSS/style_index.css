@@ -17,3 +17,13 @@
 main{
     margin: 8rem;
 }
+.Registro{
+    text-decoration: none;
+    margin: 0%;
+}
+.Registro:hover{
+    color: black;
+}
+.Boton{
+    width: 15rem;
+}
