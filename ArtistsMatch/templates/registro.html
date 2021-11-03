@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/ArtistsMatch/static/CSS/style_registro.css">
+  <link rel="stylesheet" href="{% static 'CSS/style_registro.css' %}">
   <link rel="stylesheet" href="/movil.css" media="only screen and (max-width: 700px)">
     <title>Registro</title>
 </head>
-<body background="/ArtistsMatch/static/img/fondo_registro.jpeg">
+<body background="{% static 'img/fondo_registro.jpeg' %}">
     <a class="title" href="/ArtistsMatch/templates/index.html" style="text-decoration:none"> &#60 Inicio </a>
     <div class="box">
     <h1 class="subtitle ">Registro</h1>
