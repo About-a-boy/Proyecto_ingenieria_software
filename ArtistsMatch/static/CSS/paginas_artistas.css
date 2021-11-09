@@ -1,5 +1,77 @@
-
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+html{
+    font-size: 62.5%;
+    background: #4569CC;
+}
 .header-div{
-    height: 15rem;
-    width: 10%;
+    background: #4569CC;
+    padding: 0.5rem;
+    height: 100%;
+    width: 100%;
+}
+.imagen{
+    border-radius: 10px;
+    height: 25rem;
+    width: 100%;
+    align-items: center;
+}
+.texto-encima{
+    color: white;
+    font-size: 3.5rem;
+    position: absolute;
+    top: 17rem;
+    left: 20rem;
+}
+.tarjetas{
+    display: flex;
+    align-items: center;
+}
+.imagen_concierto{
+    top: 5rem;
+    left: 2rem;
+    position: absolute;
+    background: none;
+    height: 16rem;
+    width: 16rem;
+    border-radius: 50%;
+}
+.icono{
+    position: absolute;
+    background: #4569CC;
+    top: 15.5rem;
+    left: 13rem;
+    border-radius: 50%;
+}
+.icono:hover{
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-transform: scale(1.1);
+    -ms-transform:scale(1.1) ;
+    transform: scale(1.1);
+    z-index: 2; 
+}
+.tarjetas div{
+    align-items: center;
+    margin-right:5rem;
+    margin-left:5rem;
+    display: inline-block;
+    position: static;
+}
+.tarjetas{
+    padding: 0.5rem;
+}
+.formato_tarjetas{
+    border-radius: 10px;
+    width: 20rem;
+    background: #4569CC;
+    font-size: 1.2rem;
+    padding: 0px;
+}
+.info_banda{
+    font-size: 2rem;
+    margin: 5rem;
 }

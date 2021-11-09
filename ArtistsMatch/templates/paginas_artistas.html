@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,53 +13,70 @@
 </head>
 <body>
     <header>
-        <div class="header-div text-center">
-            <img src="/Imagenes/foster_the_people.jpg" alt="Foto de banda">
+        <div class="header-div">
+          <!--En esta parte va la imágen que el artista quiera para su portada, pero por el momento
+          pondré esta imágen--> 
+            <img src="/Imagenes/foster_the_people.jpg" class="imagen">
+            <button>
+              <a href="https://www.youtube.com/watch?v=SDTZ7iX4vTQ">
+                <!--Imágen que el artista eliga para su álbum-->
+                <img src="/Imagenes/concierto.jpg" class="imagen_concierto">
+                <div class="icono">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                  </svg>
+                </div>
+              </a>
+            </button>
+            <b><p class="texto-encima">Foster the people</p></b>
         </div>
     </header>
     <main>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="/Imagenes/foster_the_people.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="/Imagenes/foster_the_people.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="/Imagenes/foster_the_people.jpg" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                </div>
-            </div>
+      <div class="tarjetas">
+        <div class="card formato_tarjetas">
+          <img src="/Imagenes/disco.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ir al álbum</a>
           </div>
-          
+        </div>
+        <div class="card formato_tarjetas">
+          <img src="/Imagenes/disco.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ir al álbum</a>
+          </div>
+        </div>
+        <div class="card formato_tarjetas">
+          <img src="/Imagenes/disco.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ir al álbum</a>
+          </div>
+        </div>
+        <div class="card formato_tarjetas">
+          <img src="/Imagenes/disco.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ir al álbum</a>
+          </div>
+        </div>
+      </div>
     </main>
+    <footer>
+      <div class="info_banda">
+        <b><h1 style="color: #4569CC;">Acerca de (Nombre de la banda)</h1></b>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis amet facilis a iusto quod soluta similique unde rem quia quae quam ipsam reprehenderit, ad quisquam! Repudiandae perspiciatis repellendus dolor?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis id iusto aspernatur vitae modi facilis ea sint voluptates et adipisci, eaque odio maxime, aperiam rerum porro aliquid aut culpa voluptatum?
+        </p>
+        <b><h2 style="color: #4569CC;">Contacto</h2></b>
+        <p>ayudamediositosemejuntaronlastareas@gmail.com</p>
+      </div>
+    </footer>
 </body>
 </html>
