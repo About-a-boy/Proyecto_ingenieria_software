@@ -29,5 +29,15 @@ urlpatterns = [
         route='', 
         view=UsersViews.Index.as_view(),
         name="index"
-    )
+    ),
+    path(
+        route='signup/',
+        view=UsersViews.SignUp.as_view(),
+        name="signup"
+    ),
+    path(
+        route='profile/',
+        view=UsersViews.ProfileView.as_view(),
+        name="profile"
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
