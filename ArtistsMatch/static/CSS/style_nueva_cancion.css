@@ -75,3 +75,8 @@ main{
     height: 15rem;
     width: 15rem;
 }
+.btn_subir{
+    position: relative;
+    bottom: 30rem;
+    right: 7rem;
+}
