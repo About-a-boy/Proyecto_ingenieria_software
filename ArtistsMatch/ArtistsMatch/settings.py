@@ -90,6 +90,8 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
+AUTHENTICATION_BACKENDS = ['users.backends.EmailBackend']
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -134,3 +136,7 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login/'
+LOGIN_REDIRECT_URL = 'profile'
+LOGOUT_REDIRECT_URL = ''

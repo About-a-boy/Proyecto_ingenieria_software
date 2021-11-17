@@ -1,4 +1,4 @@
 .DS_Store
 .venv
-ArtistsMatchdb.sqlite3
+../ArtistsMatchdb.sqlite3
 db.sqlite3 

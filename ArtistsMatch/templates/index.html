@@ -22,13 +22,14 @@
             <b>ArtistMatch</b> 
         </h1>
         <h5 class="d-flex justify-content-center text-white ">La nueva forma de crear música</h5>
-        <button 
+        <a 
             class="d-flex btn btn-light justify-content-center container-fluid btn-lg Boton"
+            href="{% url 'signup' %}"
         >
             <!-- <b><a href="/ArtistsMatch/templates/registro.html" class="Registro">♪¡Regístrame ahora!</a></b> -->
-            <b><a href="{% url 'signup' %}" class="Registro">♪¡Regístrame ahora!</a></b>
-        </button>
-        <a href="#" class="d-flex justify-content-center text-white iniciar_sesion" style="font-size:1.2rem; text-decoration: none;">Iniciar sesión</a>
+            <b><p class="Registro">♪¡Regístrame ahora!</p></b>
+        </a>
+        <a href="{% url 'login' %}" class="d-flex justify-content-center text-white iniciar_sesion" style="font-size:1.2rem; text-decoration: none;">Iniciar sesión</a>
     </main>
 </body>
 </html>

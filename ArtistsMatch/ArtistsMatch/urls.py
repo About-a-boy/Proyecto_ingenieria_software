@@ -36,7 +36,17 @@ urlpatterns = [
         name="signup"
     ),
     path(
-        route='profile/',
+        route='login/',
+        view=UsersViews.LoginView.as_view(),
+        name="login"
+    ),
+    path(
+        route='logout/',
+        view=UsersViews.LogoutView.as_view(),
+        name="logout"
+    ),
+    path(
+        route='<str:username>/',
         view=UsersViews.ProfileView.as_view(),
         name="profile"
     ),
