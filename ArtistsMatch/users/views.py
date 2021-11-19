@@ -37,7 +37,8 @@ class LoginView(LoginView):
     template_name = "inicio_sesion.html"
 
     def get_success_url(self) -> str:
-        succes_url = reverse('profile', kwargs={ "username": self.request.user.username })
+        username = self.request.user.username
+        succes_url = reverse('profile', kwargs={ "username": username })
         return succes_url
 
 

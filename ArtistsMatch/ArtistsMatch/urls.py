@@ -15,7 +15,7 @@ Including another URLconf
 """
 # Django
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,28 +26,10 @@ import users.views as UsersViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(
-        route='', 
+        route='',
         view=UsersViews.Index.as_view(),
         name="index"
     ),
-    path(
-        route='signup/',
-        view=UsersViews.SignUp.as_view(),
-        name="signup"
-    ),
-    path(
-        route='login/',
-        view=UsersViews.LoginView.as_view(),
-        name="login"
-    ),
-    path(
-        route='logout/',
-        view=UsersViews.LogoutView.as_view(),
-        name="logout"
-    ),
-    path(
-        route='<str:username>/',
-        view=UsersViews.ProfileView.as_view(),
-        name="profile"
-    ),
+    path("users/", include(('users.urls', 'users'), namespace='users')),
+    path("hits/", include(('hits.urls', 'hits'), namespace='hits')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
