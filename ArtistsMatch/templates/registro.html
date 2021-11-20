@@ -1,27 +1,58 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/ArtistsMatch/static/CSS/style_registro.css">
+  <!-- <link rel="stylesheet" href="/ArtistsMatch/static/CSS/style_registro.css"> -->
+  <link rel="stylesheet" href="{% static 'CSS/style_registro.css' %}">
   <link rel="stylesheet" href="/movil.css" media="only screen and (max-width: 700px)">
     <title>Registro</title>
 </head>
-<body background="/ArtistsMatch/static/img/fondo_registro.jpeg">
-    <a class="title" href="/ArtistsMatch/templates/index.html" style="text-decoration:none"> &#60 Inicio </a>
+<!-- <body background="/ArtistsMatch/static/img/fondo_registro.jpeg"> -->
+<body background="{% static 'img/fondo_registro.jpeg' %}">
+    <!-- <a class="title" href="/ArtistsMatch/templates/index.html" style="text-decoration:none"> &#60 Inicio </a> -->
+    <a class="title" href="{% url 'index' %}" style="text-decoration:none"> &#60 Inicio </a>
     <div class="box">
     <h1 class="subtitle ">Registro</h1>
 
-    <form action="">
-            <input class="name" type="text" placeholder="Nombre de artista"  style="width: 45rem; height: 3rem;"  required>
-            <input class="email" type="email" placeholder="Correo electronico"  style="width: 45rem; height: 3rem;" required>
-            <input class="passwore" type="password"  placeholder="Contraseña"  style="width: 45rem; height: 3rem;" required>
-            <button class="button" style="width: 45rem; height: 3.5rem;">
-                <b>¡Listo!</b>
-            </button>
-            <a  href="#" style="text-decoration:none"> Ya tengo una cuenta</a><br>
-            <a href="#" style="text-decoration:none; float:left;  padding-top: 15rem;"> Olvidé mi contraseña</a>
+    <form method="post" action="{% url 'users:signup' %}">
+        {% csrf_token %}
+        <input 
+            class="name"
+            type="text"
+            placeholder="Nombre de artista"
+            style="width: 45rem; height: 3rem;"
+            name="username"
+            required
+        >
+        <input 
+            class="email"
+            type="email"
+            placeholder="Correo electronico"
+            style="width: 45rem; height: 3rem;"
+            name="email"
+            required   
+        >
+        <input 
+            class="passwore"
+            type="password"
+            placeholder="Contraseña"  
+            style="width: 45rem; height: 3rem;"
+            name="password"
+            required
+        >
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p> {{ error }} </p>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <input type="submit" class="button" style="width: 45rem; height: 3.5rem;" value="Listo!"/>
+        <a  href="#" style="text-decoration:none"> Ya tengo una cuenta</a><br>
+        <a href="#" style="text-decoration:none; float:left;  padding-top: 15rem;"> Olvidé mi contraseña</a>
     </form>
     </div>
 
