@@ -12,6 +12,11 @@
 main{
     margin: 8rem;
 }
+
+body {
+    background-size: cover;
+}
+
 .Registro{
     text-decoration: none;
     margin: 0%;
