@@ -23,5 +23,6 @@ class Hit(models.Model):
     )
 
     colaborators = models.ManyToManyField(
-        to=Artist
+        to=Artist,
+        blank=True
     )

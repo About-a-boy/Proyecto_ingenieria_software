@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'CSS/hits/crear_hit.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<div class="form_container">
+    <form method='post' action="{% url 'hits:new' %}" class="form">
+        <input type="text" name="title" class="form__title">
+        <input type="text" name="description" class="form__description">
+        <input type="file" name="cover" class="form__cover">
+        <input type="file" name="song" class="form__song">
+        <input type="submit" value="¡Crear hit!" class="form__submit">
+    </form>
+</div>
+{% endblock content%}
