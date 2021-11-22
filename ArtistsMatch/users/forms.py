@@ -48,6 +48,8 @@ class SignUpForm(forms.Form):
         artist = Artist(user=user)
         artist.save()
 
+        return artist
+
 
 class LoginForm(forms.Form):
     """Handle login required fields"""

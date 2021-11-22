@@ -19,11 +19,11 @@ class SignUp(FormView):
     """Manage user sign up"""
     template_name = "registro.html"
     form_class = SignUpForm
-    success_url = reverse_lazy("profile")
+    success_url = reverse_lazy("users:login")
 
     def form_valid(self, form):
         """Form saving"""
-        form.save()
+        self.object = form.save()
         return super().form_valid(form)
 
 
@@ -36,10 +36,10 @@ class LoginView(LoginView):
     """Managging login view"""
     template_name = "inicio_sesion.html"
 
-    def get_success_url(self) -> str:
+    def get_success_url(self):
         username = self.request.user.username
-        succes_url = reverse('profile', kwargs={ "username": username })
-        return succes_url
+        success_url = reverse('users:profile', kwargs={ "username": username })
+        return success_url
 
 
 class ProfileView(LoginRequiredMixin, DetailView):

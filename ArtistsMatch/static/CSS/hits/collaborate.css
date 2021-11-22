@@ -1,0 +1,63 @@
+body {
+    background-color: #4569CC;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form {
+    background-color: white;
+    border-radius: 25px;
+    padding: 25px;
+    display: flex;
+    flex-flow: column;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    width: 50vw;
+    justify-content: center;
+}
+
+.form__song {
+    align-self:  center;
+}
+
+.form__song--cancel-box {
+    display: flex;
+    justify-content: center;
+}
+
+.form__song--cancel-button {
+    padding: 10px;
+    background-color: #EB4245;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.form__title {
+    color: white;
+    text-align: center;
+}
+
+.form__submit {
+    border: none;
+    background-color: #4569CC;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.form__message {
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.hidden {
+    display: none;
+}

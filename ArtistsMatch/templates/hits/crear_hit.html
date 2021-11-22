@@ -1,17 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'CSS/hits/crear_hit.css' %}">
 {% endblock styles %}
 
 {% block content %}
-<div class="form_container">
-    <form method='post' action="{% url 'hits:new' %}" class="form">
-        <input type="text" name="title" class="form__title">
-        <input type="text" name="description" class="form__description">
-        <input type="file" name="cover" class="form__cover">
-        <input type="file" name="song" class="form__song">
-        <input type="submit" value="¡Crear hit!" class="form__submit">
+<div class="form__cover--progress-box hidden progress-box" id="progress-bar">
+    Progreso
+</div>
+<div class="form__container">
+    <h1 class="form__info">¡Crear nuevo hit!</h1>
+    <form method='post' action="" class="form" id="upload-form">
+        {% csrf_token %}
+        <input type="hidden" name="hit" id="hit" value="">
+        <input type="text" placeholder="Nombre de la canción" name="title" class="form__title">
+        <textarea name="description" cols="30" rows="10" placeholder="Descripción" class="form__description"></textarea>
+        <div class="form__cover--container">
+            <div class="form__cover--image-box" id="image-box">
+            </div>
+            <input 
+                type="file" 
+                name="cover" 
+                class="form__cover" 
+                id="cover-input"
+                accept="image/png image/jpg image/jpeg image/svg"
+            >
+            <div class="form__cover--cancel-box hidden" id="cover-cancel-box">
+                <button class="form__cover--cancel-button cancel-button" id="cover-cancel-button">Cancelar</button>
+            </div>
+        </div>
+        <div class="form__song--container">
+            <input type="file" name="song" class="form__song" id="song-input">
+            <div class="form__song--cancel-box hidden" id="song-cancel-box">
+                <button class="form__song--cancel-button cancel-button" id="song-cancel-button">Cancelar</button>
+            </div>
+        </div>
+        <input type="submit" id="submit-form" value="¡Crear hit!" class="form__submit">
     </form>
 </div>
-{% endblock content%}
+{% endblock content %}
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/hits/crear_hit.js' %}"></script>
+<script src="{% static 'js/hits/progressBar.js' %}"></script>
+{% endblock js %}

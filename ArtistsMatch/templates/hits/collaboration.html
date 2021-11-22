@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'CSS/hits/collaborate.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+<div class="progress-box hidden" id="progress-box"></div>
+<h1 class="form__title">¡Sube tu colaboración!</h1>
+<form action="" class="form" id="form" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="collaboration" class="" id="collaboration" value="">
+    <input type="file" name="song" id="song-input" class="form__song">
+    <div class="form__song--cancel-box hidden" id="cancel-box">
+        <button class="form__song--cancel-button" id="cancel-button">Cancela</button>
+    </div>
+    <textarea
+        name="message"
+        id="message"
+        cols="30"
+        rows="10"
+        class="form__message"
+        placeholder="Escribe aquí un mensaje por tu colaboración"
+    ></textarea>
+    <input type="submit" value="¡Subir!" class="form__submit" id="submit">
+</form>
+{% endblock content %}
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/hits/progressBar.js' %}"></script>
+<script src="{% static 'js/hits/collaboration.js' %}"></script>
+{% endblock js %}
