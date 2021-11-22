@@ -49,7 +49,6 @@ body{
 }
 
 .box {
-
     border-radius: 20px;
     background-color: #ffffff;
     padding: 100px;
@@ -67,4 +66,5 @@ body{
 .button{
     background-color: #4569cc;
     color: #ffffff;
+    cursor: pointer;
 }

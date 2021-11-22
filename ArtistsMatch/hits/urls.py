@@ -6,7 +6,17 @@ import hits.views as views
 urlpatterns = [
     path(
         'new/',
-        view=views.CreateHitView.as_view(),
+        view=views.createHitView,
         name="new"
-    )
+    ),
+    path(
+        "<int:pk>/collaborate/",
+        view=views.createCollaborationView,
+        name="collaborate"
+    ),
+    path(
+        "<int:pk>/",
+        view=views.HitDetailView.as_view(),
+        name="hit"
+    ),
 ]
