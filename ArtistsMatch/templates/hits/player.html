@@ -1,0 +1,24 @@
+<div class="hit__container">
+    <img src="{{ hit.cover.url }}" alt="hit cover" class="hit__cover">
+    <div class="hit__player--cover">
+        <p class="hit__artist">{{ creator }}</p>
+        <h1 class="hit__title">{{ hit.title }}</h1>
+        <div class="hit__player" id="music-container">
+            <div class="hit__progress--container progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="hit__song--navigation navigation" id="navigation">
+                <button id="prev" class="action-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button id="play" class="action-btn action-btn-big">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next" class="action-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
+            <audio src="{{ hit.song.url }}" id="audio"></audio>
+        </div>
+    </div>
+</div>

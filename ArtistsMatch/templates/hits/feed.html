@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'CSS/hits/style_feed.css' %}">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+>
+<link rel="stylesheet" href="{% static 'CSS/hits/player.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/hits/hit_item.css' %}">
+<title>Inicio</title>
+{% endblock styles %}
+
+{% block content %}
+{% if hit %}
+    {% include "hits/player.html" with hit=hit only %}
+{% else %}
+    <div class="create_alert__container">
+        <a href="{% url 'hits:new' %}" class="create_alert">
+            <h1>👉 Bienvenido, ¡Crea tu primer hit!</h1>
+        </a>
+    </div>
+{% endif %}
+
+<main>
+<h1 class="title2">
+    Ultimos hits!🥊
+</h1>
+<!-- Imagenes y nombre de las canciones mas recientes -->
+<div class="hits">
+    {% for hit in hits %}
+        {% include "hits/hit_item.html" with hit=hit only %}
+    {% endfor %}
+</div>
+</main>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/hits/player.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootst  rap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'CSS/users/paginas_artistas.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/hits/hit_item.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<header>
+    <div class="header-div">
+      <!--En esta parte va la imágen que el artista quiera para su portada, pero por el momento
+      pondré esta imágen--> 
+      <img src="{% static 'img/disco.png' %}" class="imagen">
+      <h1 class="texto-encima">{{ user.username }}</h1>
+    </div>
+</header>
+<main>
+  <h1 class="title hits__title">Hits!</h1>
+  <div class="hits">
+    {% if hits %}
+      {% for hit in hits %}
+        {% include "hits/hit_item.html" with hit=hit only %}
+      {% endfor %}
+    {% else %}
+      <p>Todavía no tienes ningún hit <a href="{% url 'hits:new' %}">crea aquí el primero</a></p>
+    {% endif %}
+  </div>
+  <div class="info_banda">
+    <b><h1 class="title">Acerca de {{ user.username }}</h1></b>
+    <p>
+      {{ user.artist.bio }}
+    </p>
+    <b><h2 class="title">Contacto</h2></b>
+    <p>ayudamediositosemejuntaronlastareas@gmail.com</p>
+  </div>
+</main>
+{% endblock content %}

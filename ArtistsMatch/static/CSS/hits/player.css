@@ -1,0 +1,57 @@
+.hit__container {
+    background-color: #4569CC;
+    color: white;
+    display: flex;
+    padding: 25px 10vw;
+}
+
+.hit__cover {
+    width: 250px;
+}
+
+.hit__player--cover {
+    align-self: center;
+    margin-left: 30px;
+    width: 100%;
+}
+
+.hit__player {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.hit__artist {
+    margin: 0;
+}
+
+.hit__progress--container {
+    height: 5px;
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #ffffff5e;
+}
+
+.progress {
+    background: white;
+    border-radius: 5px;
+    height: 5px;
+}
+
+.hit__song--navigation {
+    display: flex;
+}
+
+.action-btn {
+    border: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0 25px;
+}
+
+.action-btn-big {
+    font-size: 35px;
+}

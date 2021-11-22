@@ -12,18 +12,9 @@ class Artist(models.Model):
         blank=True,
         null=True,
     )
-    artist_name = models.CharField(
-        max_length=100,
-        blank=False,
-        unique=True,
-    )
     fullname = models.CharField(
         max_length=500,
         blank=False
-    )
-    email = models.EmailField(
-        blank=True,
-        unique=True
     )
     bio = models.TextField(
         blank=True

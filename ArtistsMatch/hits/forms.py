@@ -22,7 +22,7 @@ class CreateHitForm(forms.ModelForm):
         return user.artist
 
     def save(self):
-        collaborators = self.cleaned_data["collaborators"]
+        collaborator = self.cleaned_data["collaborators"]
 
         # import ipdb; ipdb.set_trace()
 
@@ -54,7 +54,11 @@ class CreateHitForm(forms.ModelForm):
                 cover = self.cleaned_data["cover"]
                 hit = Hit.objects.create(cover=cover)
 
-            hit.collaborators.add(collaborators)
+            collaboration = Collaboration.objects.create(
+                artist = collaborator,
+                hit=hit
+            )
+            collaboration.save()
 
         hit.save()
 

@@ -1,0 +1,19 @@
+a {
+    text-decoration: none;
+}
+
+.hit_item__container {
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+}
+
+.hit_item__cover {
+    width: 150px;
+}
+
+.hit_item__title {
+    color: #4569CC;
+    margin: 0;
+    font-weight: bold;
+}

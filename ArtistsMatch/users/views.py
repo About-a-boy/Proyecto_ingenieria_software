@@ -7,6 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from users.forms import SignUpForm
+from hits.models import Collaboration, collaboration
 
 
 class Index(TemplateView):
@@ -23,7 +24,7 @@ class SignUp(FormView):
 
     def form_valid(self, form):
         """Form saving"""
-        self.object = form.save()
+        form.save()
         return super().form_valid(form)
 
 
@@ -34,7 +35,7 @@ class LogoutView(LogoutView):
 
 class LoginView(LoginView):
     """Managging login view"""
-    template_name = "inicio_sesion.html"
+    template_name = "sing-in.html"
 
     def get_success_url(self):
         username = self.request.user.username
@@ -44,9 +45,15 @@ class LoginView(LoginView):
 
 class ProfileView(LoginRequiredMixin, DetailView):
     """Profile Detail view"""
-    template_name = "profile.html"
+    template_name = "users/paginas_artistas.html"
     slug_field = "username"
     slug_url_kwarg = "username"
     queryset = User.objects.all()
     context_object_name = 'user'
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        collaborations = Collaboration.objects.filter(artist=self.request.user.artist)
+        context_data["hits"] = [collaboration.hit for collaboration in collaborations]
+        return context_data
     

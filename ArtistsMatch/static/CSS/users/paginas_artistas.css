@@ -1,0 +1,45 @@
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-div{
+    display: flex;
+    background-color: #4569CC;
+    align-items: center;
+    padding: 0 10vw;
+}
+.imagen{
+    width: 250px;
+}
+
+.texto-encima{
+    color: white;
+    font-size: 75px;
+}
+
+.title {
+    color: #4569CC;
+}
+
+.hits {
+    display: flex;
+    padding: 0 10vw;
+    margin: 20px 0;
+}
+
+.hits__title {
+    margin-left: 10vw;
+}
+
+.formato_tarjetas{
+    border-radius: 10px;
+    width: 20rem;
+    background: #4569CC;
+    font-size: 1.2rem;
+    padding: 0px;
+}
+.info_banda{
+    margin: 0 10vw;
+}

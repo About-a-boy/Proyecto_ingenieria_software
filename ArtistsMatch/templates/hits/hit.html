@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block styles %}
+<link rel="stylesheet" href="{% static 'CSS/hits/player.css' %}">
 <link rel="stylesheet" href="{% static 'CSS/hits/hit.css' %}">
 <link
     rel="stylesheet"
@@ -10,30 +11,7 @@
 {% endblock styles %}
 
 {% block content %}
-<div class="hit__container">
-    <img src="{{ hit.cover.url }}" alt="hit cover" class="hit__cover">
-    <div class="hit__player--cover">
-        <p class="hit__artist">{{ hit.collaborators }}</p>
-        <h1 class="hit__title">{{ hit.title }}</h1>
-        <div class="hit__player" id="music-container">
-            <div class="hit__progress--container progress-container" id="progress-container">
-                <div class="progress" id="progress"></div>
-            </div>
-            <div class="hit__song--navigation navigation" id="navigation">
-                <button id="prev" class="action-btn">
-                    <i class="fas fa-backward"></i>
-                </button>
-                <button id="play" class="action-btn action-btn-big">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button id="next" class="action-btn">
-                    <i class="fas fa-forward"></i>
-                </button>
-            </div>
-            <audio src="{{ hit.song.url }}" id="audio"></audio>
-        </div>
-    </div>
-</div>
+{% include "hits/player.html" with hit=hit creator=creator %}
 <div class="hit__info">
     <h1 class="hit__info--title title">Bio</h1>
     <p class="hit__bio">{{ hit.description }}</p>
@@ -51,58 +29,5 @@
 
 
 {% block js %}
-<script>
-    const playButton = document.getElementById("play")
-    const musicContainer = document.getElementById("music-container")
-    const audio = document.getElementById("audio")
-    const progress = document.getElementById("progress")
-    const progressContainer = document.getElementById("progress-container")
-
-    function playSong() {
-        musicContainer.classList.add("play")
-        playButton.querySelector("i.fas").classList.remove("fa-play")
-        playButton.querySelector("i.fas").classList.add("fa-pause")
-
-        setTimeout(() => {
-            audio.play()
-        }, 500)
-    }
-
-    function pauseSong() {
-        musicContainer.classList.remove("play")
-        playButton.querySelector("i.fas").classList.remove("fa-pause")
-        playButton.querySelector("i.fas").classList.add("fa-play")
-        
-        setTimeout(() => {
-            audio.pause()
-        }, 500)
-    }
-
-    function updateProggress(e) {
-        const { duration, currentTime } = e.srcElement;
-        const progressPercent = (currentTime / duration) * 100
-        progress.style.width = `${progressPercent}%`
-    }
-
-    function setProgress(e) {
-        const width = this.clientWidth;
-        const clickX = e.offsetX;
-        const duration = audio.duration;
-
-        audio.currentTime = `${(clickX / width) * duration}`;
-    }
-
-    playButton.addEventListener("click", () => {
-        const isPlaying = musicContainer.classList.contains("play")
-
-        if (isPlaying) {
-            pauseSong()
-        } else {
-            playSong()
-        }
-    });
-
-    audio.addEventListener("timeupdate", updateProggress)
-    progressContainer.addEventListener("click", setProgress)
-</script>
+<script src="{% static 'js/hits/player.js' %}"></script>
 {% endblock js %}

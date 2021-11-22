@@ -1,27 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/ArtistsMatch/static/CSS/style_singin.css">
-  <link rel="stylesheet" href="/movil.css" media="only screen and (max-width: 700px)">
+  <link rel="stylesheet" href="{% static 'CSS/style_singin.css' %}">
     <title>Iniciar sesión</title>
 </head>
-<body background="/ArtistsMatch/static/img/fondo_registro.jpeg">
-    <a class="title" href="/ArtistsMatch/templates/index.html" style="text-decoration:none"> &#60 Inicio </a>
+<body background="{% static 'img/fondo_registro.jpeg' %}">
+    <a class="title" href="{% url 'index' %}"> &#60 Inicio </a>
     <div class="box">
     <h1 class="subtitle ">Inicio de sesión</h1>
 
-    <form action="">
-           
-            <input class="email" type="email" placeholder="Correo electronico"  style="width: 45rem; height: 3.5rem;" required>
-            <input class="passwore" type="password"  placeholder="Contraseña"  style="width: 45rem; height: 3.5rem;" required>
-            <button class="button" style="width: 45rem; height: 3.5rem;">
-                <b>¡Listo!</b>
-            </button>
-            <a  href="registro.html" style="text-decoration:none"> No tengo una cuenta</a><br>
-            <a href="#" style="text-decoration:none; float:left;  padding-top: 15rem;"> Olvidé mi contraseña</a>
+    <form action="{% url 'users:login' %}" method="POST"> 
+        {% csrf_token %}
+        <input class="email" type="email" placeholder="Correo electronico" name="username" required>
+        <input class="password" type="password"  placeholder="Contraseña" name="password" required>
+        {{ form.errors }}
+        <input type="submit" class="submit" value="Entrar">
+        <a  href="registro.html"> No tengo una cuenta</a><br>
+        <a href="#"> Olvidé mi contraseña</a>
     </form>
     </div>
 

@@ -3,10 +3,11 @@ from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from hits.forms import CreateCollaborationForm, CreateHitForm
 from hits.models import Hit
+from hits.models.collaboration import Collaboration
 
 @login_required
 def createHitView(request):
@@ -39,6 +40,13 @@ class HitDetailView(DetailView):
     slug_url_kwarg = "pk"
     queryset = Hit.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        collaboration = Collaboration.objects.filter(hit=self.object).first()
+        context_data["creator"] = collaboration.artist.user.username
+
+        return context_data
+
 
 @login_required
 def createCollaborationView(request, pk):
@@ -62,3 +70,19 @@ def createCollaborationView(request, pk):
         "pk": pk,
         "form": form
     })
+
+
+class Feed(ListView):
+    """Feed class"""
+    template_name = "hits/feed.html"
+    queryset = Hit.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        collaboration = Collaboration.objects.filter(artist=self.request.user.artist).order_by("created")
+        try:
+            context_data["hit"] = collaboration[0].hit
+        except IndexError:
+            context_data["hit"] = ""
+        context_data["hits"] = Hit.objects.all().order_by("created")
+        return context_data
