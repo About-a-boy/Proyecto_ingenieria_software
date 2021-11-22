@@ -1,0 +1,103 @@
+
+*{
+    font-family: 'Montserrat', sans-serif;  
+}
+
+.hits {
+    padding: 0 10vw;
+    overflow: scroll;
+    display: flex;
+}
+
+.header{
+    height: 25vh;
+    background: #4569cc;
+}
+
+.texto1{
+    margin-left: 20rem;
+    padding-top: 5rem;
+    font-size: 1.5rem;
+    color: beige;
+}
+.texto2{
+    margin: 0;
+    margin-left: 20rem;
+    line-height: 0cm;
+    color: beige;
+   font-size: 5rem;
+}
+
+.principal{
+    display: flex;
+    align-items: center;  
+    width: 15rem;
+    margin-left: 1.5cm;
+    margin-top: -2.5cm;
+    border-radius: 10px;
+}
+
+audio{
+    display: flex;
+    align-items: center;  
+    margin: 2.5rem;
+    margin-left: 20rem;
+    margin-top: -2cm;
+}
+
+.title1{
+    color: #4569cc;
+    font-size: 1.5cm;
+    padding-inline-start: 1.5cm;
+}
+
+.song_image{
+    display: flex;
+    align-items: center;  
+    
+}
+
+.top div{
+    align-items: center;
+    margin-right: 0.5cm;
+    margin-left: 1cm;
+    display: inline-block;
+    position: static;
+}
+
+.portada_cancion{
+    border-radius: 10px;
+    width: 15rem;
+    font-size: 1.2rem;
+    
+}
+
+.album_title{
+    color: #4569cc;
+    font-size: medium;
+    margin: 0;
+    line-height: 0cm;
+}
+
+.album_title h5{
+    color: #000000;
+    font-size: small;
+    
+}
+
+.title2{
+    color: #4569cc;
+    margin-left: 10vw;
+}
+
+
+.create_alert__container {
+    background-color: #4569cc;
+    padding: 10 px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.create_alert {
+    color: white;
+}

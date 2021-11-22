@@ -21,9 +21,9 @@
         </h1>
         <h5 class="d-flex justify-content-center text-white ">La nueva forma de crear música</h5>
         <button class="d-flex btn btn-light justify-content-center container-fluid btn-lg Boton">
-            <b><a href="/HTML/registro.html" class="Registro">♪¡Regístrame ahora!</a></b>
+            <b><a href="{% url 'users:signup' %}" class="Registro">♪¡Regístrame ahora!</a></b>
         </button>
-        <a href="sing-in.html" class="d-flex justify-content-center text-white iniciar_sesion" style="font-size:1.2rem; text-decoration: none;">Iniciar sesión</a>
+        <a href="{% url 'users:login' %}" class="d-flex justify-content-center text-white iniciar_sesion" style="font-size:1.2rem; text-decoration: none;">Iniciar sesión</a>
     </main>
 </body>
 </html>

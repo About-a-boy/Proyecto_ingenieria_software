@@ -1,0 +1,9 @@
+{% load static %}
+
+<footer class="footer">
+    <a href="{% url 'hits:feed' %}" class="footer__feed link-text">🏠 Feed</a>
+    <a href="{% url 'hits:new' %}" class="footer__create">
+      <img src="{% static 'img/disco.png' %}" class="imagen_navegacion">
+    </a>
+    <a href="{% url 'users:profile' request.user.username %}" class="footer__user link-text">🎸Perfil</a>
+</footer>

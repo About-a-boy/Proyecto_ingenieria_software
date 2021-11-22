@@ -1,0 +1,4 @@
+<a href="{% url 'hits:hit' hit.pk %}" class="hit_item__container">
+    <img class="hit_item__cover" src="{{ hit.cover.url }}" alt="cover">
+    <p class="hit_item__title">{{ hit.title }}</p>
+</a>
